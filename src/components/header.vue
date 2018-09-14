@@ -4,32 +4,59 @@
       <h1>Let's share</h1>
       <p>精品博客汇聚</p>
       <div class="btns">
-        <el-button >立即登录</el-button>
-        <el-button>注册账号</el-button>
+        <router-link to="/login"><el-button >立即登录</el-button></router-link>
+        <router-link to="/register"><el-button>注册账号</el-button></router-link>
+        
       </div> 
     </template>
     <template v-if="isLogin">
       <h1>Let's share</h1>
       <i class="edit el-icon-edit"></i>
-      <img class="avatar" src="http://cn.gravatar.com/avatar/1?s=128&d=identicon" alt="">          
+      <div class="user">
+        <img class="avatar" :src="user.avatar" :alt="user.username" :title="user.username">
+        <ul>
+          <li><router-link to="my">my</router-link></li>
+          <li><a href="#" @click="onLogout">注销</a></li>
+        </ul>
+      </div>
+                
     </template>
   </header>
 </template>
 
 <script>
-  
+  import {mapState,mapGetters,mapMutations,mapActions} from 'vuex'
+
+  import auth from '@/api/auth.js'
   export default {
     data() {
-      return {
-        isLogin: true
-      }
-    }
+      return {}
+    },
+    computed:{
+      ...mapGetters([
+        'user',
+        'isLogin'
+        ]),
+    },
+    created(){
+      this.checkLogin()
+    },
+    methods:{
+      ...mapActions([
+        'checkLogin',
+        'logout'
+      ]),
+      onLogout(){
+        this.logout()
+      },
+    },
+    
   }
 </script>
 
 
 <style lang="less">
-
+ul{margin: 0;padding: 0;}
 @import "../assets/base.less";  
 
 header.no-login {
@@ -56,6 +83,7 @@ header.no-login {
 
   button {
     margin: 20px 5px 0;
+    background: #fff;
   }
 } 
 
@@ -78,14 +106,35 @@ header.login {
     color: #fff;
     font-size: 30px;
   }
-
-  .avatar {
+  .user{
+    position: relative;
+    
+    .avatar {
     width: 40px;
     height: 40px;
     border: 1px solid #fff;
     border-radius: 50%;
     margin-left: 15px;
+    }
+    ul{
+      display: none;
+      position:absolute;
+      top: 42px;
+      left: 14px;
+      list-style: none;
+      background: #FFF;
+      width: 80%;
+      li{text-align: center;padding: 3px 5px;}
+      li:hover{background: #ccc;}
+      a{text-decoration: none;}
+      
+    }
+    &:hover>ul{display: block;}
   }
+  
+  
+
+  
 }
 
 

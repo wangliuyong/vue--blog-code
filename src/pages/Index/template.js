@@ -7,6 +7,8 @@ window.auth = auth
 window.blog = blog
 
 
+
+
 export default {
   data () {
     return {

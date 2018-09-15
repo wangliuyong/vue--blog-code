@@ -41,7 +41,7 @@ const actions={
     
   },
   checkLogin({commit}){
-    auth.getInfo().then((res)=>{
+    return auth.getInfo().then((res)=>{
       if(res.isLogin){
         commit('setUser',{user:res.data});
         commit('setLogin',{isLogin:true});
@@ -61,7 +61,7 @@ const actions={
 
 
 export default {
-  state,
+  state,   
   getters,
   mutations,
   actions

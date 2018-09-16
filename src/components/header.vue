@@ -120,6 +120,7 @@ header.login {
       margin-left: 15px;
     }
     ul {
+      transition: all 0.5S;
       display: none;
       position: absolute;
       top: 42px;
@@ -136,6 +137,7 @@ header.login {
       }
       a {
         text-decoration: none;
+        color:#000;
       }
     }
     &:hover > ul {

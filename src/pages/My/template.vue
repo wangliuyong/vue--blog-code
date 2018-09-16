@@ -16,7 +16,7 @@
         
         <div class="actions">
           <router-link :to="`/detail/${blog.id}`" class="link" style="width:35px;">详情</router-link>
-          <router-link to="/edit">编辑</router-link>
+          <router-link :to="`/edit/${blog.id}`">编辑</router-link>
           <a href="#" @click.prevent="onDelete(blog.id)">删除</a>
         </div>
       

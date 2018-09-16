@@ -6,10 +6,9 @@
     <p class="msg">限30个字</p>
     <h3>内容简介</h3>
     <el-input type="textarea" rows=3 autosize v-model="description"></el-input>
-    <p class="msg">限30个字</p>
+    <p class="msg">限100个字</p>
     <h3>文章内容</h3>
     <el-input type="textarea" rows=20 :autosize="{ minRows: 2, maxRows: 4}" v-model="content"></el-input>
-    <p class="msg">限30个字</p>
     <p>
       <label for="">是否展示到首页</label>
       <el-switch v-model="atIndex" active-color="#13ce66" inactive-color="#ff4949"></el-switch>

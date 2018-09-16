@@ -16,7 +16,7 @@
           <router-link :to="`/user/${user.id}`"><img class="avatar" :src="user.avatar" :alt="user.username" :title="user.username"></router-link>
           
           <ul>
-            <li><router-link to="my">my</router-link></li>
+            <li><router-link to="/my">my</router-link></li>
             <li><a href="#" @click="onLogout">注销</a></li>
           </ul>
         </div>

@@ -3,7 +3,7 @@
     <section class="blog-posts" v-for="(item,index) in blogs" :key="index">
       <div class="item">
         <figure class="avatar">
-          <img :src="item.user.avatar" :alt="item.user.username">
+          <router-link :to="`/user/${item.user.id}`" class='link'><img :src="item.user.avatar" :alt="item.user.username" :title="item.user.username"></router-link>
           <figcaption>{{item.user.username}}</figcaption> 
         </figure>
         <h3>{{item.title}}<span> {{friendlyDate(item.createdAt)}}</span></h3> 

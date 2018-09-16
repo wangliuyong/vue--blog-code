@@ -1,15 +1,11 @@
 <template>
   <div id="detail">
     <section class="user-info">
-      <img src="http://cn.gravatar.com/avatar/1?s=128&d=identicon" alt="" class="avatar">
-      <h3>前端异步大揭秘</h3>
-      <p><router-link to="/user">若愚</router-link> 发布于3天前</p>
+      <img :src="user.avatar" :alt="user.username" class="avatar">
+      <h3>{{title}}</h3>
+      <p><router-link to="/user">{{user.username}}</router-link> 创建于{{friendlyDate(createdAt)}}</p>
     </section>
-    <section class="article">
-
-              
-
-    </section>
+    <section class="article" v-html="markdown"></section>
   </div>
 </template>
 

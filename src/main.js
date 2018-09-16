@@ -6,9 +6,11 @@ import router from './router'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import store from './store/index'
+import transformTime from '@/helpers/tansformTime.js'
 
 
 Vue.use(ElementUI)
+Vue.use(transformTime)
 
 Vue.config.productionTip = false
 

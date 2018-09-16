@@ -1,7 +1,23 @@
+import marked from 'marked'
+
 export default {
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      title:'',
+      content:'',
+      user:{},
+      createdAt:''
     }
+  },
+  created() {
+    
+  },
+  computed:{
+    markdown(){
+      return marked(this.content)
+    },
+  },
+  methods:{
+
   }
 }
